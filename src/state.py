@@ -7,7 +7,7 @@ class State:
 
     def set_children(self, children):
         self.children = children
-
+    
     def go(self, direction):
         if direction == 'backwards':
             raise GameOver("You got eaten by the Grue!")
@@ -17,3 +17,17 @@ class State:
             return nextState
         else:
             raise Exception("No " + direction + " child...")
+
+
+class MagicTreeState(State):
+    def __init__(self, name, description):
+        self.name = name
+        self.description = description
+
+    def yell(self, target):
+        if target == "What am I?":
+            print "Victory!"
+        else:
+            print "The tree yells " + target + " back"
+
+        return self

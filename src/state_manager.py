@@ -4,8 +4,10 @@ class StateManager:
     def __init__(self):
         baseState = State('base', "You've just started the amazing the adventure!")
         successState = State('win!!!1111!!!', "Congratulations, you won! As if it was that hard...")
+        tree = MagicTreeState('tree', "There is a talking tree. Deal with it")
         
         baseState.set_children({"forward": successState})
+        successState.set_children({"up": tree})
 
         self.current = baseState
         print "You are in " + self.current.name
@@ -22,3 +24,5 @@ if __name__ == '__main__':
     manager = StateManager()
     manager.do_the_thing("go", "forward")
     manager.do_the_thing("go", "backwards")
+    manager.do_the_thing("go", "up")
+    manager.do_the_thing("yell", "What am I?")

@@ -1,6 +1,7 @@
 import random, time
 from sys import stdin
 from state_manager import *
+from game_over import GameOver
 
 state = StateManager()
 
@@ -26,7 +27,6 @@ while True:
 	for i in text.rstrip('\n').split(' '):
 		if not action and i in actionMap:
 			action = actionMap[i]
-			print actionMap[i]
 		elif not objectNoun and i in nouns:
 			objectNoun = i
 		elif not subjectNoun and i in nouns:
@@ -34,11 +34,12 @@ while True:
 		if action and objectNoun and subjectNoun:
 			# We have all the things
 			break
-	print (action, objectNoun, subjectNoun)
+	if not action:
+		action = text.rstrip('\n')
 
 	try:
 		state.do_the_thing(action, objectNoun, subjectNoun)
-	except GameOverException(e):
+	except GameOver as e:
 		print e.value
 		print "You have died."
 		time.sleep(2)

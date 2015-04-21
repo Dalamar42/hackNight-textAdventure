@@ -1,6 +1,6 @@
-import random
+import random, time
 from sys import stdin
-from state_manager import StateManager
+from state_manager import *
 
 state = StateManager()
 
@@ -38,5 +38,11 @@ while True:
 
 	try:
 		state.do_the_thing(action, objectNoun, subjectNoun)
+	except GameOverException(e):
+		print e.value
+		print "You have died."
+		time.sleep(2)
+		print "Sorry."
+		state = StateManager()
 	except Exception:
 		print random.choice(bad_dave)

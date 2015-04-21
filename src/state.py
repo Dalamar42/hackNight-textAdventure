@@ -7,7 +7,7 @@ class State:
 
     def set_children(self, children):
         self.children = children
-    
+
     def go(self, direction):
         if direction == 'backwards':
             raise GameOver("You got eaten by the Grue!")

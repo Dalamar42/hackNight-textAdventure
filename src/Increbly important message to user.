@@ -1,7 +1,0 @@
-#While (alive)
-printf "Welcome! Use 'Go/move/walk/dance' with 'left/right/up/down'"
-#MOVE TILL ENCOUNTER
-printf "You've encountered a skeleton! Use 'stab' to stab!"
-#COMBAT
-printf "You've won! Imagine you got experience"
-#End While

@@ -1,4 +1,10 @@
+import random
 from sys import stdin
+from state_manager import StateManager
+
+state = StateManager()
+
+bad_dave = [ "What are you doing Dave?", "I'm afraid I can't do that Dave.", "Would you like me to sing you a song Dave?" ]
 
 actionMap = {
 	"walk": "go",
@@ -29,4 +35,8 @@ while True:
 			# We have all the things
 			break
 	print (action, objectNoun, subjectNoun)
-	do_the_thing(action, objectNoun, subjectNoun)
+
+	try:
+		state.do_the_thing(action, objectNoun, subjectNoun)
+	except Exception:
+		print random.choice(bad_dave)

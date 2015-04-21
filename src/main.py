@@ -35,11 +35,12 @@ while True:
 		if action and objectNoun and subjectNoun:
 			# We have all the things
 			break
-	print (action, objectNoun, subjectNoun)
+	if not action:
+		action = text.rstrip('\n')
 
 	try:
 		state.do_the_thing(action, objectNoun, subjectNoun)
-	except GameOver(e):
+	except GameOver as e:
 		print e.value
 		print "You have died."
 		time.sleep(2)

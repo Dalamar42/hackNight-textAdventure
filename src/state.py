@@ -5,7 +5,7 @@ class State:
 
     def set_children(self, children):
         self.children = children
-    
+
     def go(self, direction):
         nextState = self.children[direction]
         if nextState is not None:

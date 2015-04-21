@@ -18,7 +18,7 @@ actionMap = {
 nouns = [ "knife", "skeleton", "hat", "left", "right", "up", "down", "forward", "back" ]
 
 while True:
-	text = stdin.readline()
+	text = stdin.readline().lower()
 
 	action = None
 	objectNoun = None

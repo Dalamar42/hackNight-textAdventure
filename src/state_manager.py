@@ -18,6 +18,7 @@ class StateManager:
         print self.current.description
 
 
-manager = StateManager()
-manager.do_the_thing("go", "forward")
-manager.do_the_thing("go", "backwards")
+if __name__ == '__main__':
+    manager = StateManager()
+    manager.do_the_thing("go", "forward")
+    manager.do_the_thing("go", "backwards")

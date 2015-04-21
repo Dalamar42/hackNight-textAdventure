@@ -25,7 +25,7 @@ class MagicTreeState(State):
         self.description = description
 
     def yell(self, target):
-        if target == "What am I?":
+        if target == "what am i?":
             print "Victory!"
         else:
             print "The tree yells " + target + " back"

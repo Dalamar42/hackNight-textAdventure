@@ -27,7 +27,6 @@ while True:
 	for i in text.rstrip('\n').split(' '):
 		if not action and i in actionMap:
 			action = actionMap[i]
-			print actionMap[i]
 		elif not objectNoun and i in nouns:
 			objectNoun = i
 		elif not subjectNoun and i in nouns:

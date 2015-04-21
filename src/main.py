@@ -1,6 +1,8 @@
 import random
 from sys import stdin
-from state import *
+from state_manager import StateManager
+
+state = StateManager()
 
 bad_dave = [ "What are you doing Dave?", "I'm afraid I can't do that Dave.", "Would you like me to sing you a song Dave?" ]
 
@@ -35,6 +37,6 @@ while True:
 	print (action, objectNoun, subjectNoun)
 
 	try:
-		do_the_thing(action, objectNoun, subjectNoun)
+		state.do_the_thing(action, objectNoun, subjectNoun)
 	except Exception:
-		print "What are you doing Dave?"
+		print random.choice(bad_dave)

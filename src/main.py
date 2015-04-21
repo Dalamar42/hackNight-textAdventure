@@ -1,6 +1,7 @@
 import random, time
 from sys import stdin
 from state_manager import *
+from game_over import GameOver
 
 state = StateManager()
 
@@ -38,7 +39,7 @@ while True:
 
 	try:
 		state.do_the_thing(action, objectNoun, subjectNoun)
-	except GameOverException(e):
+	except GameOver(e):
 		print e.value
 		print "You have died."
 		time.sleep(2)

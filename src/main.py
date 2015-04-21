@@ -12,19 +12,19 @@ actionMap = {
 	"dance": "go",
 	"move": "go",
 	"go": "go",
-	"stab": "stab"
+	"yell": "yell"
 }
 
-nouns = [ "knife", "skeleton", "hat", "left", "right", "up", "down", "forward", "back" ]
+nouns = [ "knife", "skeleton", "hat", "left", "right", "up", "down", "forward", "backwards" ]
 
 while True:
-	text = stdin.readline().lower()
+	text = stdin.readline().lower().rstrip('\n')
 
 	action = None
 	objectNoun = None
 	subjectNoun = None
 
-	for i in text.rstrip('\n').split(' '):
+	for i in text.split(' '):
 		if not action and i in actionMap:
 			action = actionMap[i]
 		elif not objectNoun and i in nouns:
@@ -34,11 +34,11 @@ while True:
 		if action and objectNoun and subjectNoun:
 			# We have all the things
 			break
-	if not action:
-		action = text.rstrip('\n')
+	if action and not objectNoun:
+		objectNoun = text.replace(action, '').replace('  ', ' ').lstrip(' ').rstrip(' ')
 
 	try:
-		state.do_the_thing(action, objectNoun, subjectNoun)
+		state.do_the_thing(action, objectNoun)#, subjectNoun)
 	except GameOver as e:
 		print e.value
 		print "You have died."

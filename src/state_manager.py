@@ -23,6 +23,6 @@ class StateManager:
 if __name__ == '__main__':
     manager = StateManager()
     manager.do_the_thing("go", "forward")
-    manager.do_the_thing("go", "backwards")
     manager.do_the_thing("go", "up")
+    manager.do_the_thing("yell", "Hi?")
     manager.do_the_thing("yell", "What am I?")

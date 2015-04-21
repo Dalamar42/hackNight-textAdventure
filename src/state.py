@@ -1,3 +1,5 @@
+from game_over import GameOver
+
 class State:
     def __init__(self, name, description):
         self.name = name
@@ -7,6 +9,9 @@ class State:
         self.children = children
     
     def go(self, direction):
+        if direction == 'backwards':
+            raise GameOver("You got eaten by the Grue!")
+
         nextState = self.children[direction]
         if nextState is not None:
             return nextState

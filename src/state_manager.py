@@ -20,3 +20,4 @@ class StateManager:
 
 manager = StateManager()
 manager.do_the_thing("go", "forward")
+manager.do_the_thing("go", "backwards")

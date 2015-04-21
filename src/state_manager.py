@@ -8,11 +8,13 @@ class StateManager:
         baseState.set_children({"forward": successState})
 
         self.current = baseState
+        print "You are in " + self.current.name
         print self.current.description
 
     def do_the_thing(self, action, target):
-        self.current = self.current.go(target)
-        print "Moved to " + self.current.name
+        action_method = getattr(self.current, action)
+        self.current = action_method(target)
+        print "You are in " + self.current.name
         print self.current.description
 
 

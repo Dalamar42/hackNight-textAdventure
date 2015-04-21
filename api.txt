@@ -1,0 +1,2 @@
+Action: [go]
+Target: [left, right, forward, back, up, down]
